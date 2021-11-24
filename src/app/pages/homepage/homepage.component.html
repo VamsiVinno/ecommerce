@@ -1,0 +1,11 @@
+<div >
+  <app-header (category)="onCategory($event)" ></app-header>
+  <div class="row w-100">
+    <div class="col-md-3">
+    <app-sidebar [selectedCategory]="category"  (fashionCategory)="onFashionCategory($event)"></app-sidebar>
+    </div>
+    <div class="col-md-9">
+      <app-product-layout [productCategory]="category"  ></app-product-layout>
+    </div>
+  </div>
+</div>

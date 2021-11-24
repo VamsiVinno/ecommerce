@@ -1,0 +1,59 @@
+<!-- <div style="position:fixed" class="mb-2">
+<h2>Price</h2>
+<mat-slider
+  thumbLabel
+  [displayWith]="formatLabel"
+  tickInterval="500"
+  step="500"
+  min="0"
+  max="10000"
+  aria-label="units"></mat-slider>
+</div> -->
+<ul style="list-style: none;">
+ <h2>Price</h2>
+    <li *ngFor="let item of price"><input type="checkbox"  value="{{item}}"(click)="onPrice($event)"> {{item}}</li><br>
+  </ul>
+    <div class="list-group" >
+        <ul style="list-style: none;" *ngIf="selectedCategory=='men'">
+          <h2>Men's Wear</h2>
+          <li *ngFor="let item of mensWear;let i=index"><input type="checkbox" (change)="onCheck($event,i)" value="{{item.type}}"> {{item.type}}
+            <ul style="list-style: none;" *ngIf="item.enableChildren">
+              <h4>Brands</h4>
+              <li *ngFor="let item of menBrands"><input type="checkbox"  value="{{item}}"(click)="onBrand($event)"> {{item}}</li><br>
+            </ul></li><br>
+        </ul>
+        <div>
+        </div>
+        <ul style="list-style: none;" *ngIf="selectedCategory=='women'">
+     <h3>Women's Wear</h3>
+      <li *ngFor="let item of womensWears;let i=index"><input type="checkbox" (change)="onCheck($event,i)" value="{{item.type}}"> {{item.type}}
+        <ul style="list-style: none;" *ngIf="item.enableChildren">
+          <h4>Brands</h4>
+          <li *ngFor="let item of menBrands"><input type="checkbox"  value="{{item}}"(click)="onBrand($event)"> {{item}}</li><br>
+        </ul></li><br>
+        </ul>
+  <ul *ngIf="selectedCategory=='kids'"  style="list-style: none;" >
+  <h3>Kid's Wear</h3>
+    <li><p style="font-weight: 500;">Boys</p></li>
+    <ul style="list-style: none;">
+      <li *ngFor="let item of boysWear;let i=index"><input type="checkbox" (change)="onCheck($event,i)" value="{{item.type}}"> {{item.type}}
+        <ul style="list-style: none;" *ngIf="item.enableChildren">
+    <!--  <li> <p style="font-weight: 500;">Girls</p></li> -->
+
+          <h4>Brands</h4>
+          <li *ngFor="let item of menBrands"><input type="checkbox"  value="{{item}}"(click)="onBrand($event)"> {{item}}</li><br>
+        </ul></li>
+     </ul>
+    <li> <p style="font-weight: 500;">Girls</p></li>
+     <ul style="list-style: none;">
+      <li *ngFor="let item of girlsWear;"><input type="checkbox" (change)="onCheck($event,2)" value="{{item.type}}"> {{item.type}}
+        <ul style="list-style: none;" *ngIf="item.enableChildren">
+          <h4>Brands</h4>
+          <li *ngFor="let item of menBrands"><input type="checkbox"  value="{{item}}"(click)="onBrand($event)"> {{item}}</li><br>
+        </ul>
+        </li>
+        </ul>
+     </ul>
+ </div>
+
+

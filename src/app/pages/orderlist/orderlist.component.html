@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="row bg-danger">
+    <br>
+    <a style="font-size: 1.25rem; font-weight: 400; color: white; text-decoration: none;" class="ml-2 mt-1" [routerLink]="['']">KYATA</a>
+    <br><br>
+  </div>
+  <div class="row" style="justify-content: center;">
+    <h3 class="text-danger">All Orders</h3>
+  </div>
+  <div class="row">
+  <div class="col-lg-8 m-auto">
+    <div *ngFor="let item of allOrdersArray;let i=index" (click)="onOrderClick(i)">
+      <div class="row border">
+        <div *ngIf=item.images>
+          <img src={{item.images[0]}} style="height: 150px; width: 100px;" class="img-thumbnail">
+        </div>
+        <div>
+          <h5>{{item.brand}}</h5>
+          <p>{{item.product_name}}</p>
+
+          <p>Price:{{item.price | currency}}</p>
+        </div>
+</div>
+</div>
+  </div>
+  </div>

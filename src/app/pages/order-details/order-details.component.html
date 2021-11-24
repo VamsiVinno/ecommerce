@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <div class="row bg-danger">
+    <br>
+    <a style="font-size: 1.25rem; font-weight: 400; color: white; text-decoration: none;" class="ml-2 mt-1" [routerLink]="['']">KYATA</a>
+    <br><br>
+  </div>
+  <div class="row" style="justify-content: center;">
+    <h3 class="text-danger">Order Details</h3>
+  </div>
+  <div class="row" style="justify-content: center;">
+<div class="col-lg-9">
+  <div class="card " style="width: 100%">
+    <div *ngIf="orderDetails.images" style="margin:auto;">
+    <img class="card-img-top" src={{orderDetails.images[0]}} style="height: 250px; width: 150px;" >
+
+    </div>
+    <div  style="margin:auto;">
+      <h3>{{orderDetails.brand}}</h3>
+      <p>{{orderDetails.product_name}}</p>
+    </div>
+    <div class="card-body">
+      <div *ngIf="orders">
+        <h5 class="float-left" >Delivery Address:</h5><p class="d-inline">{{orders.address}}</p><br><br><br>
+        <h5 class="float-left">Phone:</h5><p class="d-inline">{{orders.phone}}</p><br><br><br>
+        <h5 class="float-left">Order Status:</h5>  <div class="track">
+          <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order confirmed</span> </div>
+          <div class="step " [ngClass]="{'active' : orders.order_status=='ordered'}"> <span class="icon"> <i class="fa fa-user"></i> </span> <span class="text"> Picked by courier</span> </div>
+          <div class="step " [ngClass]="{'active' : orders.order_status=='ordered'}"> <span class="icon"> <i class="fa fa-truck"></i> </span> <span class="text"> On the way </span> </div>
+          <div class="step"> <span class="icon"> <i class="fa fa-gift"></i> </span> <span class="text">Ready for pickup</span> </div>
+        </div>
+        <br>
+        <!-- <h5 class="float-left">Order Status:</h5><p class="d-inline">{{orders.order_status}}</p><br><br><br> -->
+        <h5 class="float-left ">Ordered Date:</h5><p class="d-inline">{{(orders.order_date)}}</p>
+        </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+</div>
+  </div>

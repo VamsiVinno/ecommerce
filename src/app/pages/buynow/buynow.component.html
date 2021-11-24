@@ -1,0 +1,73 @@
+<div class="container-fluid">
+  <div class="row bg-danger">
+    <br>
+    <a style="font-size: 1.25rem; font-weight: 400; color: white; text-decoration: none;" class="ml-2 mt-1" [routerLink]="['']">KYATA</a>
+ <br><br>
+  </div>
+  <div class="row">
+<div class="col-sm-6 m-auto">
+  <div class="row border">
+    <div>
+  <img src="{{productDetails.images[0]}}" class="img-thumbnail" style="height: 200px; width: 150px;">
+  </div>
+  <div>
+  <h4>{{productDetails.brand}}</h4>
+  <p>{{productDetails.product_name}}</p>
+  <p>Price:{{productDetails.price | currency}}</p>
+</div>
+</div>
+<div class="form-group">
+  <h4>Address:</h4>
+<textarea  rows="5" cols="40" class="form-control" id="address" (change)="onFocusAddress($event)" required></textarea>
+<br>
+<h4>Phone:</h4>
+<input type="number" placeholder="Enter your Phone number" class="form-control" id="phone"  (change)="onFocusPhone($event)" required>
+</div>
+<div class="row">
+  <h4>Payment Methods</h4>
+ </div>
+
+   <div class="bg-secondary" id="parent1">
+<a style="font-size: 26px; color:white"  data-toggle="collapse" href="#collapseExample" aria-controls="collapseExample">Debit Card</a>
+   </div>
+   <div class="collapse" id="collapseExample" data-parent="#parent1">
+    <div class="card card-body">
+      <form (ngSubmit)="onSubmitDebit()" #f1="ngForm">
+        <div id="user-data" ngModelGroup="userData" #userdata="ngModelGroup">
+        <div class="form__div"> <label for="" class="form__label">Card Number</label>  <input type="text" class="form-control" placeholder=" " name="cardnumber" ngModel required></div>
+        <div class="form__div">  <label for="" class="form__label">MM / yy</label><input type="text" class="form-control" placeholder=" " name="expire" ngModel required> </div>
+        <br><div class="form__div"><label for="" class="form__label">cvv code</label>  <input type="password" class="form-control" placeholder=" " name="cvv" ngModel required> </div>
+        <br><div class="form__div"><label for="" class="form__label">name on the card</label> <input type="text" class="form-control" placeholder=" " name="name" ngModel required>  </div>
+        <br><button class="btn btn-primary w-100"  type="submit" [disabled]="!f1.valid">Place Order</button>
+</div>
+      </form>
+    </div>
+  </div>
+   <br>
+   <div class="bg-secondary" id="parent2">
+    <a style="font-size: 26px; color: white"  data-toggle="collapse" href="#collapseExample1" aria-controls="collapseExample1">Credit Card</a>
+   </div>
+   <div class="collapse" id="collapseExample1" data-parent="#parent2">
+    <div class="card card-body">
+      <form (ngSubmit)="onSubmitCredit()" #f="ngForm">
+        <div id="user-data" ngModelGroup="userData" #userdata="ngModelGroup">
+        <div class="form__div"> <label for="" class="form__label">Card Number</label>  <input type="text" class="form-control" placeholder=" " name="cardnumber" ngModel required></div>
+        <div class="form__div">  <label for="" class="form__label">MM / yy</label><input type="text" class="form-control" placeholder=" " name="expire" ngModel required> </div>
+        <br><div class="form__div"><label for="" class="form__label">cvv code</label>  <input type="password" class="form-control" placeholder=" " name="cvv" ngModel required> </div>
+        <br><div class="form__div"><label for="" class="form__label">name on the card</label> <input type="text" class="form-control" placeholder=" " name="name" ngModel required>  </div>
+        <br><button class="btn btn-primary w-100"  type="submit" [disabled]="!f.valid">Place Order</button>
+</div>
+      </form>
+    </div>
+  </div> <br>
+  <div class="bg-secondary" id="parent3">
+    <a style="font-size: 26px; color: white;"  data-toggle="collapse" href="#collapseExample2" aria-controls="collapseExample2">Cash On Delivery</a>
+   </div>
+   <div class="collapse" id="collapseExample2" data-parent="#parent3">
+    <div class="card card-body">
+      <br><div class="btn btn-primary w-100" (click)="onCash()">Place Order</div>
+      </div>
+      </div>
+ </div>
+</div>
+  </div>
