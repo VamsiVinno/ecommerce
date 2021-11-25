@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { LayoutComponent } from './components/layout/layout.component';
 import { ProductLayoutComponent } from './components/product-layout/product-layout.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
@@ -17,12 +16,13 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { OrderDetailsComponent } from './pages/order-details/order-details.component';
 import { MatSliderModule } from '@angular/material/slider';
+import { LayoutComponent } from './layout/layout.component';
 @NgModule({
   declarations: [
     AppComponent,
+    LayoutComponent,
     HeaderComponent,
     SidebarComponent,
-    LayoutComponent,
     ProductLayoutComponent,
     HomepageComponent,
     ProductsComponent,
